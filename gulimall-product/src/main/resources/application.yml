@@ -1,0 +1,35 @@
+server:
+  port: 14000
+  servlet:
+    session:
+      timeout: 30m
+
+spring:
+#  application:
+#    name: gulimall-product
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.1.150:3306/gulimall_pms
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.150:8848
+mybatis-plus:
+  #  扫描依赖的jar包下的所有mapper.xml
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+
+# 开启日志
+logging:
+  level:
+    com.atguigu.gulimall: debug
+    # feign调用日志，链路日志
+    org.springframework.cloud.openfeign: debug
+    org.springframework.cloud.sleuth: debug
+
+my:
+  username: zhangsan
+  userage: 18

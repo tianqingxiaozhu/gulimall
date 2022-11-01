@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,17 @@ import com.atguigu.common.utils.R;
 public class BrandController {
     @Autowired
     private BrandService brandService;
+
+    @Value("${my.username}")
+    private String username;
+
+    @Value("${my.userage}")
+    private String userage;
+
+    @RequestMapping("/get")
+    public R String(){
+        return R.ok().put("username", username).put("userage", userage);
+    }
 
     /**
      * 列表
